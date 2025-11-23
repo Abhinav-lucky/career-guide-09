@@ -83,44 +83,44 @@ const Home = () => {
           <SearchBar />
 
           {/* Action Buttons */}
-          <div className="flex items-center gap-3 overflow-x-auto pb-1">{/* Removed flex-wrap, added items-center and increased gap */}
+          <div className="flex items-center gap-2.5">{/* Removed overflow-x-auto and pb-1 */}
             <Button
               variant="outline"
               size="sm"
               onClick={() => setIsFilterOpen(true)}
-              className="whitespace-nowrap text-xs px-2.5 py-1 h-8"
+              className="whitespace-nowrap text-xs px-2 py-1 h-7"
             >
-              <SlidersHorizontal className="w-3.5 h-3.5 mr-1.5" />
+              <SlidersHorizontal className="w-3 h-3 mr-1.5" />
               {t('buttons.filter')}
             </Button>
             <Button
               variant="outline"
               size="sm"
               onClick={() => setIsSortOpen(!isSortOpen)}
-              className="whitespace-nowrap text-xs px-2.5 py-1 h-8"
+              className="whitespace-nowrap text-xs px-2 py-1 h-7"
             >
-              <ArrowUpDown className="w-3.5 h-3.5 mr-1.5" />
+              <ArrowUpDown className="w-3 h-3 mr-1.5" />
               {t('buttons.sort')}
             </Button>
             <Button
               variant="outline"
               size="sm"
               onClick={() => navigate('/favorites')}
-              className="whitespace-nowrap text-xs px-2.5 py-1 h-8"
+              className="whitespace-nowrap text-xs px-2 py-1 h-7"
             >
-              <Heart className="w-3.5 h-3.5 mr-1.5" />
+              <Heart className="w-3 h-3 mr-1.5" />
               {t('buttons.favorites')}
             </Button>
             <Button
               variant="outline"
               size="sm"
               onClick={() => navigate('/compare')}
-              className="whitespace-nowrap relative text-xs px-2.5 py-1 h-8"
+              className="whitespace-nowrap relative text-xs px-2 py-1 h-7"
             >
-              <GitCompare className="w-3.5 h-3.5 mr-1.5" />
+              <GitCompare className="w-3 h-3 mr-1.5" />
               {t('buttons.compare')}
               {compareList.length > 0 && (
-                <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
+                <span className="absolute -top-1.5 -right-1.5 bg-primary text-primary-foreground text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-lg border-2 border-background">
                   {compareList.length}
                 </span>
               )}
