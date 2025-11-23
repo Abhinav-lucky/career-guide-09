@@ -41,6 +41,9 @@
     "easy": "సులభం",
     "medium": "మధ్యస్థ",
     "hard": "కష్టం",
+    "beginner": "ప్రారంభ",
+    "intermediate": "మధ్య స్థాయి",
+    "advanced": "అధునాతన",
     "resultsCount": "{{count}} కెరీర్లు కనుగొనబడ్డాయి"
   },
   "sections": {

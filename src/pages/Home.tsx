@@ -139,8 +139,12 @@ const Home = () => {
             <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
               <span className="text-primary">●</span> {t('sections.recentlyViewed')}
             </h3>
-            <div className="grid gap-4">
-              {recentlyViewedJobs.slice(0, 3).map(job => <JobCard key={job.id} job={job} />)}
+            <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-thin">
+              {recentlyViewedJobs.map(job => (
+                <div key={job.id} className="flex-shrink-0 w-[280px]">
+                  <JobCard job={job} compact />
+                </div>
+              ))}
             </div>
           </motion.div>}
 
