@@ -1,0 +1,99 @@
+{
+  "app": {
+    "name": "CareerGuide",
+    "version": "v1.0.0"
+  },
+  "nav": {
+    "back": "Back",
+    "home": "Home"
+  },
+  "search": {
+    "placeholder": "Search careers...",
+    "beginSearch": "Begin your search",
+    "searchDreams": "Search your dreams",
+    "noResults": "No results found",
+    "searchHistory": "Search History"
+  },
+  "buttons": {
+    "filter": "Filter",
+    "sort": "Sort",
+    "favorites": "Favorites",
+    "compare": "Compare",
+    "settings": "Settings",
+    "apply": "Apply",
+    "reset": "Reset",
+    "clearAll": "Clear All",
+    "undo": "Undo",
+    "cancel": "Cancel",
+    "save": "Save"
+  },
+  "sort": {
+    "title": "Sort By",
+    "alphabeticalAsc": "A → Z",
+    "alphabeticalDesc": "Z → A",
+    "mostViewed": "Most Viewed"
+  },
+  "filter": {
+    "title": "Filter Careers",
+    "skills": "Skills",
+    "salary": "Salary Range",
+    "difficulty": "Difficulty",
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Hard",
+    "resultsCount": "{{count}} careers found"
+  },
+  "sections": {
+    "recentlyViewed": "Recently Viewed",
+    "exploreSectors": "Explore Sectors",
+    "description": "Description",
+    "salary": "Salary",
+    "skills": "Skills",
+    "roadmap": "Roadmap",
+    "certificates": "Certificates",
+    "required": "Required",
+    "optional": "Optional",
+    "resources": "Resources",
+    "free": "Free",
+    "paid": "Paid"
+  },
+  "favorites": {
+    "title": "Favorites",
+    "empty": "No favorites yet",
+    "emptyDesc": "Start adding careers to your favorites to see them here",
+    "removed": "Removed from favorites",
+    "saved": "{{count}} careers saved"
+  },
+  "compare": {
+    "title": "Compare Careers",
+    "selectUp": "Select up to 3 careers to compare",
+    "empty": "No careers to compare",
+    "emptyDesc": "Long-press on job cards to add them to comparison",
+    "salary": "Salary",
+    "difficulty": "Difficulty",
+    "skills": "Skills",
+    "sector": "Sector",
+    "duration": "Duration"
+  },
+  "settings": {
+    "title": "Settings",
+    "theme": "Theme Color",
+    "language": "Language",
+    "about": "About",
+    "developers": "Developers",
+    "github": "View on GitHub"
+  },
+  "languages": {
+    "en": "English",
+    "hi": "हिंदी",
+    "te": "తెలుగు"
+  },
+  "colors": {
+    "red": "Red",
+    "blue": "Blue",
+    "green": "Green",
+    "purple": "Purple",
+    "teal": "Teal",
+    "orange": "Orange"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "app": {
+    "name": "करियर गाइड",
+    "version": "संस्करण 1.0.0"
+  },
+  "nav": {
+    "back": "वापस",
+    "home": "होम"
+  },
+  "search": {
+    "placeholder": "करियर खोजें...",
+    "beginSearch": "अपनी खोज शुरू करें",
+    "searchDreams": "अपने सपने खोजें",
+    "noResults": "कोई परिणाम नहीं मिला",
+    "searchHistory": "खोज इतिहास"
+  },
+  "buttons": {
+    "filter": "फ़िल्टर",
+    "sort": "क्रमबद्ध",
+    "favorites": "पसंदीदा",
+    "compare": "तुलना",
+    "settings": "सेटिंग्स",
+    "apply": "लागू करें",
+    "reset": "रीसेट",
+    "clearAll": "सभी साफ़ करें",
+    "undo": "पूर्ववत",
+    "cancel": "रद्द करें",
+    "save": "सहेजें"
+  },
+  "sort": {
+    "title": "इसके अनुसार क्रमबद्ध करें",
+    "alphabeticalAsc": "अ → ज्ञ",
+    "alphabeticalDesc": "ज्ञ → अ",
+    "mostViewed": "सबसे अधिक देखा गया"
+  },
+  "filter": {
+    "title": "करियर फ़िल्टर करें",
+    "skills": "कौशल",
+    "salary": "वेतन सीमा",
+    "difficulty": "कठिनाई",
+    "easy": "आसान",
+    "medium": "मध्यम",
+    "hard": "कठिन",
+    "resultsCount": "{{count}} करियर मिले"
+  },
+  "sections": {
+    "recentlyViewed": "हाल ही में देखा गया",
+    "exploreSectors": "क्षेत्रों का अन्वेषण करें",
+    "description": "विवरण",
+    "salary": "वेतन",
+    "skills": "कौशल",
+    "roadmap": "रोडमैप",
+    "certificates": "प्रमाणपत्र",
+    "required": "आवश्यक",
+    "optional": "वैकल्पिक",
+    "resources": "संसाधन",
+    "free": "मुफ्त",
+    "paid": "सशुल्क"
+  },
+  "favorites": {
+    "title": "पसंदीदा",
+    "empty": "अभी तक कोई पसंदीदा नहीं",
+    "emptyDesc": "यहां देखने के लिए अपने पसंदीदा में करियर जोड़ना शुरू करें",
+    "removed": "पसंदीदा से हटाया गया",
+    "saved": "{{count}} करियर सहेजे गए"
+  },
+  "compare": {
+    "title": "करियर की तुलना करें",
+    "selectUp": "तुलना के लिए 3 करियर तक चुनें",
+    "empty": "तुलना के लिए कोई करियर नहीं",
+    "emptyDesc": "तुलना में जोड़ने के लिए जॉब कार्ड पर लंबे समय तक दबाएं",
+    "salary": "वेतन",
+    "difficulty": "कठिनाई",
+    "skills": "कौशल",
+    "sector": "क्षेत्र",
+    "duration": "अवधि"
+  },
+  "settings": {
+    "title": "सेटिंग्स",
+    "theme": "थीम रंग",
+    "language": "भाषा",
+    "about": "के बारे में",
+    "developers": "डेवलपर्स",
+    "github": "GitHub पर देखें"
+  },
+  "languages": {
+    "en": "English",
+    "hi": "हिंदी",
+    "te": "తెలుగు"
+  },
+  "colors": {
+    "red": "लाल",
+    "blue": "नीला",
+    "green": "हरा",
+    "purple": "बैंगनी",
+    "teal": "टील",
+    "orange": "नारंगी"
+  }
+}

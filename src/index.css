@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* NothingOS Light Mode (backup) */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 0 84% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 160 100% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 84% 55%;
+    --radius: 1rem;
+
+    /* NothingOS Custom */
+    --neon-red: 0 100% 60%;
+    --neon-green: 160 100% 50%;
+    --neon-cyan: 180 100% 50%;
+    --neon-yellow: 50 100% 55%;
+    --glow: 0 100% 60%;
+    --gradient-start: 0 100% 55%;
+    --gradient-end: 160 100% 45%;
+  }
+
+  .dark {
+    /* NothingOS Dark Mode - Primary Theme */
+    --background: 0 0% 6%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 0 100% 60%;
+    --primary-foreground: 0 0% 10%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 0 100% 60%;
+    --accent-foreground: 0 0% 95%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 20%;
+    --input: 0 0% 18%;
+    --ring: 0 100% 60%;
+
+    /* NothingOS Neon Accents */
+    --neon-red: 0 100% 60%;
+    --neon-green: 160 100% 50%;
+    --neon-cyan: 180 100% 50%;
+    --neon-yellow: 50 100% 60%;
+    --glow: 0 100% 60%;
+    --gradient-start: 0 100% 55%;
+    --gradient-end: 160 100% 45%;
+  }
+}
+
+@layer utilities {
+  .glow-red {
+    box-shadow: 0 0 20px hsla(var(--neon-red), 0.3);
+  }
+  
+  .glow-green {
+    box-shadow: 0 0 20px hsla(var(--neon-green), 0.3);
+  }
+  
+  .glow-subtle {
+    box-shadow: 0 0 30px hsla(var(--glow), 0.15);
+  }
+  
+  .gradient-card {
+    background: linear-gradient(135deg, hsl(var(--gradient-start)) 0%, hsl(var(--gradient-end)) 100%);
+  }
+  
+  .glass-effect {
+    background: hsla(var(--card), 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsla(var(--border), 0.3);
+  }
+
+  /* Mobile responsive sizing - scale down for small screens */
+  @media (max-width: 480px) {
+    h1 { font-size: 82%; }
+    h2 { font-size: 82%; }
+    h3 { font-size: 82%; }
+    h4 { font-size: 85%; }
+    
+    body, p, span { font-size: 85%; }
+    
+    .text-xs { font-size: 0.65rem; }
+    .text-sm { font-size: 0.75rem; }
+    .text-base { font-size: 0.85rem; }
+    .text-lg { font-size: 0.95rem; }
+    .text-xl { font-size: 1.1rem; }
+    .text-2xl { font-size: 1.3rem; }
+    .text-3xl { font-size: 1.6rem; }
+    
+    .p-2 { padding: 0.4rem; }
+    .p-3 { padding: 0.6rem; }
+    .p-4 { padding: 0.64rem; }
+    .p-5 { padding: 0.8rem; }
+    .p-6 { padding: 0.96rem; }
+    .p-8 { padding: 1.28rem; }
+    
+    .px-2 { padding-left: 0.4rem; padding-right: 0.4rem; }
+    .px-3 { padding-left: 0.6rem; padding-right: 0.6rem; }
+    .px-4 { padding-left: 0.64rem; padding-right: 0.64rem; }
+    .px-6 { padding-left: 0.96rem; padding-right: 0.96rem; }
+    
+    .py-2 { padding-top: 0.4rem; padding-bottom: 0.4rem; }
+    .py-3 { padding-top: 0.6rem; padding-bottom: 0.6rem; }
+    .py-4 { padding-top: 0.64rem; padding-bottom: 0.64rem; }
+    .py-6 { padding-top: 0.96rem; padding-bottom: 0.96rem; }
+    
+    .gap-2 { gap: 0.4rem; }
+    .gap-3 { gap: 0.6rem; }
+    .gap-4 { gap: 0.64rem; }
+    .gap-6 { gap: 0.96rem; }
+    
+    .w-6 { width: 1.2rem; }
+    .w-8 { width: 1.6rem; }
+    .w-10 { width: 2rem; }
+    .w-12 { width: 2.4rem; }
+    
+    .h-6 { height: 1.2rem; }
+    .h-8 { height: 1.6rem; }
+    .h-10 { height: 2rem; }
+    .h-12 { height: 2.4rem; }
+    
+    /* Ensure touch targets remain at least 44px */
+    button, a { min-height: 44px; min-width: 44px; }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    transition: color 250ms, background-color 250ms;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
