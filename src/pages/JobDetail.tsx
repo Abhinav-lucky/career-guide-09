@@ -1,21 +1,18 @@
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Heart, DollarSign, TrendingUp, BookOpen, Award, Check, GitCompare } from 'lucide-react';
+import { DollarSign, TrendingUp, BookOpen, Award } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { toast } from 'sonner';
 import Layout from '@/components/Layout';
 import Roadmap from '@/components/Roadmap';
 import PlatformIcon from '@/components/PlatformIcon';
 import { jobs, sectors } from '@/data/careers';
 import { addRecentlyViewed, incrementViewCount } from '@/utils/storage';
 import { formatToINR } from '@/utils/currency';
-import { useApp } from '@/contexts/AppContext';
 
 const JobDetail = () => {
   const { jobId } = useParams<{ jobId: string }>();
   const { t } = useTranslation();
-  const { isFavorite, toggleFavorite, isInCompare, toggleCompare, compareList } = useApp();
   const job = jobs.find(j => j.id === jobId);
   const sector = job ? sectors.find(s => s.id === job.sectorId) : null;
 
@@ -25,20 +22,6 @@ const JobDetail = () => {
       incrementViewCount(jobId);
     }
   }, [jobId]);
-
-  const handleCompareToggle = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (!isInCompare(jobId!) && compareList.length >= 3) {
-      toast.error('At most three careers can be compared.');
-      return;
-    }
-    toggleCompare(jobId!);
-  };
-
-  const handleFavoriteToggle = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    toggleFavorite(jobId!);
-  };
 
   if (!job || !sector) {
     return (
@@ -83,32 +66,6 @@ const JobDetail = () => {
             </p>
           </div>
           <div className="absolute inset-0 bg-black/10" />
-          
-          <div className="absolute top-4 right-4 flex gap-2">
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={handleFavoriteToggle}
-              className="p-2.5 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors flex items-center justify-center"
-            >
-              <Heart
-                className={`w-5 h-5 ${isFavorite(job.id) ? 'fill-red-500 text-red-500' : 'text-white'}`}
-              />
-            </motion.button>
-
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={handleCompareToggle}
-              className="p-2.5 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors flex items-center justify-center"
-            >
-              {isInCompare(job.id) ? (
-                <Check className="w-5 h-5 text-green-500" />
-              ) : (
-                <GitCompare className="w-5 h-5 text-white" />
-              )}
-            </motion.button>
-          </div>
         </motion.div>
 
         {/* Quick Stats - Side by Side */}
