@@ -73,7 +73,7 @@ const JobDetail = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => toggleFavorite(job.id)}
-            className="absolute top-6 right-6 p-3 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors"
+            className="absolute top-6 right-6 p-3 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors flex items-center justify-center"
           >
             <Heart
               className={`w-6 h-6 ${isFavorite(job.id) ? 'fill-white text-white' : 'text-white'}`}
