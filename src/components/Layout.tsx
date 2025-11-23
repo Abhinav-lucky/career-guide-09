@@ -25,7 +25,7 @@ const Layout = ({
   }, [location.pathname]);
   return <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-40 bg-card/80 backdrop-blur-sm border-b border-border">
-        <div className="container mx-auto px-4 py-3 flex items-center justify-between gap-4">
+        <div className="container mx-auto px-4 py-3 flex items-center justify-between gap-4 opacity-100 shadow-sm bg-slate-950 text-slate-50">
           <div className="flex items-center gap-3">
             {!isHome && <motion.button whileHover={{
             scale: 1.05
