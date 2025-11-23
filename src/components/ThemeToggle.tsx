@@ -24,7 +24,7 @@ const ThemeToggle = () => {
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       onClick={toggleTheme}
-      className="p-3 rounded-full bg-card border border-border hover:border-primary transition-colors glow-subtle"
+      className="p-3 rounded-full bg-card border border-border hover:border-primary transition-colors glow-subtle flex items-center justify-center"
       aria-label="Toggle theme"
     >
       {theme === 'dark' ? (
