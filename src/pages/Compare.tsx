@@ -26,7 +26,7 @@ const Compare = () => {
 
   return (
     <Layout>
-      <div className="space-y-6 max-w-6xl mx-auto">
+      <div className="space-y-6 max-w-6xl mx-auto px-4 overflow-x-hidden">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -204,10 +204,10 @@ const Compare = () => {
                 <Button
                   key={job.id}
                   onClick={() => navigate(`/job/${job.id}`)}
-                  className="w-full text-xs px-2 py-1.5"
+                  className="w-full"
                   size="sm"
                 >
-                  View {job.name}
+                  View Details
                 </Button>
               ))}
             </div>
