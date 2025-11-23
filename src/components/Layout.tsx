@@ -32,7 +32,7 @@ const Layout = ({ children }: LayoutProps) => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => navigate(-1)}
-                className="p-2 rounded-full hover:bg-secondary transition-colors"
+                className="p-2 rounded-full hover:bg-secondary transition-colors flex items-center justify-center"
                 aria-label={t('nav.back')}
               >
                 <ArrowLeft className="w-5 h-5" />
