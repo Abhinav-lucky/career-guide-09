@@ -26,12 +26,18 @@ const JobDetail = () => {
     }
   }, [jobId]);
 
-  const handleCompareToggle = () => {
+  const handleCompareToggle = (e: React.MouseEvent) => {
+    e.stopPropagation();
     if (!isInCompare(jobId!) && compareList.length >= 3) {
       toast.error('At most three careers can be compared.');
       return;
     }
     toggleCompare(jobId!);
+  };
+
+  const handleFavoriteToggle = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    toggleFavorite(jobId!);
   };
 
   if (!job || !sector) {
@@ -82,7 +88,7 @@ const JobDetail = () => {
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              onClick={() => toggleFavorite(job.id)}
+              onClick={handleFavoriteToggle}
               className="p-2.5 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors flex items-center justify-center"
             >
               <Heart

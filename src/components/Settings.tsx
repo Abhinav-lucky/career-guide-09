@@ -47,7 +47,7 @@ const Settings = ({ isOpen, onClose }: SettingsProps) => {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed right-0 top-0 h-full w-full max-w-md bg-card border-l border-border z-50"
+            className="fixed right-0 top-0 h-full w-full max-w-md bg-card border-l border-border z-50 overflow-y-auto"
           >
             <div className="p-6 space-y-6">
               {/* Header */}
