@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Layout from '@/components/Layout';
 import SearchBar from '@/components/SearchBar';
-import ThemeToggle from '@/components/ThemeToggle';
 import SectorCard from '@/components/SectorCard';
 import JobCard from '@/components/JobCard';
 import FilterSheet from '@/components/FilterSheet';
@@ -69,16 +68,13 @@ const Home = () => {
           animate={{ opacity: 1, y: 0 }}
           className="space-y-6"
         >
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-3xl font-bold mb-2">
-                Discover Your <span className="text-primary">Career Path</span>
-              </h2>
-              <p className="text-muted-foreground">
-                Explore 40+ careers across 10 sectors
-              </p>
-            </div>
-            <ThemeToggle />
+          <div>
+            <h2 className="text-3xl font-bold mb-2">
+              Discover Your <span className="text-primary">Career Path</span>
+            </h2>
+            <p className="text-muted-foreground">
+              Explore 40+ careers across 10 sectors
+            </p>
           </div>
 
           <SearchBar />
