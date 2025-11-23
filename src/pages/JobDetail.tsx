@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Heart, DollarSign, TrendingUp, BookOpen, Award, Check } from 'lucide-react';
+import { Heart, DollarSign, TrendingUp, BookOpen, Award, Check, GitCompare } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
 import Layout from '@/components/Layout';
@@ -102,9 +102,11 @@ const JobDetail = () => {
               onClick={handleCompareToggle}
               className="p-2.5 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors flex items-center justify-center"
             >
-              <Check
-                className={`w-5 h-5 ${isInCompare(job.id) ? 'text-green-500' : 'text-white'}`}
-              />
+              {isInCompare(job.id) ? (
+                <Check className="w-5 h-5 text-green-500" />
+              ) : (
+                <GitCompare className="w-5 h-5 text-white" />
+              )}
             </motion.button>
           </div>
         </motion.div>
