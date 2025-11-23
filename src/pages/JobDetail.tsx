@@ -86,7 +86,7 @@ const JobDetail = () => {
               className="p-2.5 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors flex items-center justify-center"
             >
               <Heart
-                className={`w-5 h-5 ${isFavorite(job.id) ? 'fill-white text-white' : 'text-white'}`}
+                className={`w-5 h-5 ${isFavorite(job.id) ? 'fill-red-500 text-red-500' : 'text-white'}`}
               />
             </motion.button>
 
@@ -94,12 +94,10 @@ const JobDetail = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={handleCompareToggle}
-              className={`p-2.5 backdrop-blur-sm rounded-full transition-colors flex items-center justify-center ${
-                isInCompare(job.id) ? 'bg-green-500 hover:bg-green-600' : 'bg-white/20 hover:bg-white/30'
-              }`}
+              className="p-2.5 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors flex items-center justify-center"
             >
               <Check
-                className={`w-5 h-5 ${isInCompare(job.id) ? 'text-white' : 'text-white'}`}
+                className={`w-5 h-5 ${isInCompare(job.id) ? 'text-green-500' : 'text-white'}`}
               />
             </motion.button>
           </div>
@@ -112,22 +110,22 @@ const JobDetail = () => {
           transition={{ delay: 0.3 }}
           className="grid grid-cols-3 gap-3"
         >
-          <div className="bg-card border border-border rounded-2xl p-4">
-            <DollarSign className="w-6 h-6 text-primary mb-2" />
-            <p className="text-xs text-muted-foreground mb-0.5">{t('sections.salary')}</p>
-            <p className="text-lg font-bold">
+          <div className="bg-card border border-border rounded-2xl p-3">
+            <DollarSign className="w-4 h-4 text-primary mb-1.5" />
+            <p className="text-[10px] text-muted-foreground mb-0.5">{t('sections.salary')}</p>
+            <p className="text-xs font-bold leading-tight">
               {salaryDisplay}
             </p>
           </div>
-          <div className="bg-card border border-border rounded-2xl p-4">
-            <TrendingUp className="w-6 h-6 text-primary mb-2" />
-            <p className="text-xs text-muted-foreground mb-0.5">{t('filter.difficulty')}</p>
-            <p className="text-lg font-bold capitalize">{t(`filter.${job.difficulty}`)}</p>
+          <div className="bg-card border border-border rounded-2xl p-3">
+            <TrendingUp className="w-4 h-4 text-primary mb-1.5" />
+            <p className="text-[10px] text-muted-foreground mb-0.5">{t('filter.difficulty')}</p>
+            <p className="text-xs font-bold capitalize">{t(`filter.${job.difficulty}`)}</p>
           </div>
-          <div className="bg-card border border-border rounded-2xl p-4">
-            <BookOpen className="w-6 h-6 text-primary mb-2" />
-            <p className="text-xs text-muted-foreground mb-0.5">{t('sections.roadmap')}</p>
-            <p className="text-lg font-bold">{job.roadmap.length} steps</p>
+          <div className="bg-card border border-border rounded-2xl p-3">
+            <BookOpen className="w-4 h-4 text-primary mb-1.5" />
+            <p className="text-[10px] text-muted-foreground mb-0.5">{t('sections.roadmap')}</p>
+            <p className="text-xs font-bold">{job.roadmap.length} steps</p>
           </div>
         </motion.div>
 

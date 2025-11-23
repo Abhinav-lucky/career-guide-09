@@ -50,7 +50,7 @@ const Sector = () => {
       } else if (prev.length < 3) {
         return [...prev, jobId];
       } else {
-        toast.error('At most three careers can be compared.');
+        toast.error('You can compare up to 3 careers at a time.');
         return prev;
       }
     });
@@ -92,20 +92,20 @@ const Sector = () => {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="relative overflow-hidden rounded-3xl p-8"
+          className="relative overflow-hidden rounded-3xl p-5"
           style={{
             background: `linear-gradient(135deg, ${sector.gradient.from} 0%, ${sector.gradient.to} 100%)`,
           }}
         >
           <div className="relative z-10">
-            <div className="text-6xl mb-4">{sector.icon}</div>
-            <h1 className="text-4xl font-bold text-white mb-2">
+            <div className="text-4xl mb-2.5">{sector.icon}</div>
+            <h1 className="text-2xl font-bold text-white mb-1.5">
               {sector.name}
             </h1>
-            <p className="text-xl text-white/90">
+            <p className="text-base text-white/90">
               {sector.description}
             </p>
-            <p className="text-white/70 mt-2">
+            <p className="text-sm text-white/70 mt-1.5">
               {sortedJobs.length} careers available
             </p>
           </div>

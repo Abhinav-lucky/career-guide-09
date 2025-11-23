@@ -115,6 +115,25 @@ All colors MUST be HSL.
     background: hsl(var(--primary) / 0.8);
   }
 
+  /* Global vertical scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--secondary));
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.8);
+  }
+
   /* Mobile responsive sizing - scale down for small screens */
   @media (max-width: 480px) {
     h1 { font-size: 82%; }
