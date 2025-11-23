@@ -83,7 +83,7 @@ const Home = () => {
           <SearchBar />
 
           {/* Action Buttons */}
-          <div className="flex gap-2 pb-2">
+          <div className="flex flex-wrap gap-2">{/* Removed pb-2 and added flex-wrap */}
             <Button
               variant="outline"
               size="sm"

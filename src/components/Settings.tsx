@@ -47,7 +47,7 @@ const Settings = ({ isOpen, onClose }: SettingsProps) => {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed right-0 top-0 h-full w-full max-w-md bg-card border-l border-border z-50 overflow-y-auto"
+            className="fixed right-0 top-0 h-full w-full max-w-md bg-card border-l border-border z-50"
           >
             <div className="p-6 space-y-6">
               {/* Header */}
@@ -125,8 +125,11 @@ const Settings = ({ isOpen, onClose }: SettingsProps) => {
                   </p>
                   <p>
                     <span className="font-semibold text-foreground">{t('settings.developers')}:</span>
-                    <br />
-                    M Abhinav, V Aditya & K M Rushee Varan
+                  </p>
+                  <p className="text-sm leading-relaxed">
+                    M Abhinav<br />
+                    V Aditya<br />
+                    K M Rushee Varan
                   </p>
                   <motion.button
                     whileHover={{ scale: 1.05 }}

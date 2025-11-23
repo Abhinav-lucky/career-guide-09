@@ -77,7 +77,7 @@ const Compare = () => {
                 >
                   <button
                     onClick={() => toggleCompare(job.id)}
-                    className="absolute top-3 right-3 p-1 bg-secondary hover:bg-destructive/20 rounded-full transition-colors"
+                    className="absolute top-3 right-3 p-1 bg-secondary hover:bg-destructive/20 rounded-full transition-colors flex items-center justify-center"
                   >
                     <X className="w-3.5 h-3.5" />
                   </button>
@@ -204,7 +204,7 @@ const Compare = () => {
                 <Button
                   key={job.id}
                   onClick={() => navigate(`/job/${job.id}`)}
-                  className="w-full text-sm"
+                  className="w-full text-xs px-2 py-1.5"
                   size="sm"
                 >
                   View {job.name}

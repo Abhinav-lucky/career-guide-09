@@ -113,19 +113,19 @@ const JobDetail = () => {
           <div className="bg-card border border-border rounded-2xl p-3">
             <DollarSign className="w-4 h-4 text-primary mb-1.5" />
             <p className="text-[10px] text-muted-foreground mb-0.5">{t('sections.salary')}</p>
-            <p className="text-xs font-bold leading-tight">
+            <p className="text-[11px] font-bold leading-tight">
               {salaryDisplay}
             </p>
           </div>
           <div className="bg-card border border-border rounded-2xl p-3">
             <TrendingUp className="w-4 h-4 text-primary mb-1.5" />
             <p className="text-[10px] text-muted-foreground mb-0.5">{t('filter.difficulty')}</p>
-            <p className="text-xs font-bold capitalize">{t(`filter.${job.difficulty}`)}</p>
+            <p className="text-[11px] font-bold capitalize leading-tight">{t(`filter.${job.difficulty}`)}</p>
           </div>
           <div className="bg-card border border-border rounded-2xl p-3">
             <BookOpen className="w-4 h-4 text-primary mb-1.5" />
             <p className="text-[10px] text-muted-foreground mb-0.5">{t('sections.roadmap')}</p>
-            <p className="text-xs font-bold">{job.roadmap.length} steps</p>
+            <p className="text-[11px] font-bold leading-tight">{job.roadmap.length} steps</p>
           </div>
         </motion.div>
 

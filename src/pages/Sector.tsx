@@ -171,6 +171,7 @@ const Sector = () => {
                 selected={selectedJobs.includes(job.id)}
                 onSelect={handleSelectJob}
                 showCompare
+                tapToSelect={selectedJobs.length > 0}
               />
             </motion.div>
           ))}

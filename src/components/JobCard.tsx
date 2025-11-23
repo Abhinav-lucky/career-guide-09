@@ -15,9 +15,10 @@ interface JobCardProps {
   onSelect?: (jobId: string) => void;
   compact?: boolean;
   showCompare?: boolean;
+  tapToSelect?: boolean;
 }
 
-const JobCard = ({ job, selectable, selected, onSelect, compact = false, showCompare = false }: JobCardProps) => {
+const JobCard = ({ job, selectable, selected, onSelect, compact = false, showCompare = false, tapToSelect = false }: JobCardProps) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const { isFavorite, toggleFavorite, isInCompare, toggleCompare, compareList } = useApp();
@@ -82,6 +83,13 @@ const JobCard = ({ job, selectable, selected, onSelect, compact = false, showCom
       longPressRef.current = false;
       return;
     }
+    
+    // If tap-to-select is enabled and card is selectable, select instead of navigate
+    if (tapToSelect && selectable && onSelect) {
+      onSelect(job.id);
+      return;
+    }
+    
     navigate(`/job/${job.id}`);
   };
 
