@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Heart, Check } from 'lucide-react';
+import { Heart, Check, GitCompare } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Job } from '@/types/career';
 import { useState, useRef } from 'react';
@@ -163,9 +163,11 @@ const JobCard = ({ job, selectable, selected, onSelect, compact = false, showCom
               onClick={handleCompareToggle}
               className="p-1.5 hover:bg-secondary rounded-full transition-colors flex-shrink-0 flex items-center justify-center"
             >
-              <Check
-                className={`w-3.5 h-3.5 md:w-4 md:h-4 ${isInCompare(job.id) ? 'text-green-500' : 'text-muted-foreground'}`}
-              />
+              {isInCompare(job.id) ? (
+                <Check className="w-3.5 h-3.5 md:w-4 md:h-4 text-green-500" />
+              ) : (
+                <GitCompare className="w-3.5 h-3.5 md:w-4 md:h-4 text-muted-foreground" />
+              )}
             </motion.button>
           )}
         </div>
