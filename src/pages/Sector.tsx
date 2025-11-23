@@ -1,20 +1,26 @@
 import { useParams } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { ArrowUpDown } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import JobCard from '@/components/JobCard';
 import { sectors, jobs } from '@/data/careers';
 import { Job, SortOption } from '@/types/career';
 import { Button } from '@/components/ui/button';
+import { toast } from 'sonner';
+import { useApp } from '@/contexts/AppContext';
 
 const Sector = () => {
   const { sectorId } = useParams<{ sectorId: string }>();
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { toggleCompare, compareList } = useApp();
   const sector = sectors.find(s => s.id === sectorId);
   const [sortOption, setSortOption] = useState<SortOption>('alphabetical-asc');
   const [isSortOpen, setIsSortOpen] = useState(false);
+  const [selectedJobs, setSelectedJobs] = useState<string[]>([]);
   
   let sectorJobs = jobs.filter(j => j.sectorId === sectorId);
   
@@ -35,6 +41,37 @@ const Sector = () => {
   const handleSort = (option: SortOption) => {
     setSortOption(option);
     setIsSortOpen(false);
+  };
+
+  const handleSelectJob = (jobId: string) => {
+    setSelectedJobs(prev => {
+      if (prev.includes(jobId)) {
+        return prev.filter(id => id !== jobId);
+      } else if (prev.length < 3) {
+        return [...prev, jobId];
+      } else {
+        toast.error('At most three careers can be compared.');
+        return prev;
+      }
+    });
+  };
+
+  const handleCompareSelected = () => {
+    if (selectedJobs.length < 2) {
+      toast.error('Select at least 2 careers to compare.');
+      return;
+    }
+    
+    // Add selected jobs to compare list
+    selectedJobs.forEach(jobId => {
+      if (!compareList.includes(jobId) && compareList.length < 3) {
+        toggleCompare(jobId);
+      }
+    });
+    
+    // Navigate to compare page
+    navigate('/compare');
+    setSelectedJobs([]);
   };
 
   if (!sector) {
@@ -128,7 +165,13 @@ const Sector = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
             >
-              <JobCard job={job} selectable onSelect={() => {}} />
+              <JobCard 
+                job={job} 
+                selectable 
+                selected={selectedJobs.includes(job.id)}
+                onSelect={handleSelectJob}
+                showCompare
+              />
             </motion.div>
           ))}
         </motion.div>
@@ -138,6 +181,26 @@ const Sector = () => {
             <p className="text-muted-foreground">No jobs found in this sector</p>
           </div>
         )}
+
+        {/* Floating Compare Button */}
+        <AnimatePresence>
+          {selectedJobs.length >= 2 && (
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 100 }}
+              className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50"
+            >
+              <Button
+                size="lg"
+                onClick={handleCompareSelected}
+                className="shadow-2xl bg-primary hover:bg-primary/90"
+              >
+                Compare Selected ({selectedJobs.length})
+              </Button>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </Layout>
   );

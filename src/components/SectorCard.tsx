@@ -26,13 +26,13 @@ const SectorCard = ({ sector, index }: SectorCardProps) => {
     >
       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
       
-      <div className="relative p-6 min-h-[140px] flex flex-col justify-between">
+      <div className="relative p-3.5 min-h-[84px] flex flex-col justify-between">
         <div>
-          <div className="text-4xl mb-3">{sector.icon}</div>
-          <h3 className="text-xl font-bold text-white mb-1">
+          <div className="text-2xl mb-2">{sector.icon}</div>
+          <h3 className="text-base font-bold text-white mb-0.5">
             {sector.name}
           </h3>
-          <p className="text-sm text-white/80">
+          <p className="text-xs text-white/80">
             {sector.description}
           </p>
         </div>
@@ -43,7 +43,7 @@ const SectorCard = ({ sector, index }: SectorCardProps) => {
             whileHover={{ x: 5 }}
             className="text-white"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-4 h-4" />
           </motion.div>
         </div>
       </div>

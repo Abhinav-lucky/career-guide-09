@@ -1,29 +1,41 @@
 import { motion } from 'framer-motion';
-import { Heart } from 'lucide-react';
+import { Heart, Check } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Job } from '@/types/career';
 import { useState, useRef } from 'react';
 import { useApp } from '@/contexts/AppContext';
 import { formatToINR } from '@/utils/currency';
 import { useTranslation } from 'react-i18next';
+import { toast } from 'sonner';
 
 interface JobCardProps {
   job: Job;
   selectable?: boolean;
   selected?: boolean;
   onSelect?: (jobId: string) => void;
+  compact?: boolean;
+  showCompare?: boolean;
 }
 
-const JobCard = ({ job, selectable, selected, onSelect }: JobCardProps) => {
+const JobCard = ({ job, selectable, selected, onSelect, compact = false, showCompare = false }: JobCardProps) => {
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { isFavorite, toggleFavorite } = useApp();
+  const { isFavorite, toggleFavorite, isInCompare, toggleCompare, compareList } = useApp();
   const [longPressTimer, setLongPressTimer] = useState<NodeJS.Timeout | null>(null);
   const longPressRef = useRef(false);
 
   const handleFavoriteToggle = (e: React.MouseEvent) => {
     e.stopPropagation();
     toggleFavorite(job.id);
+  };
+
+  const handleCompareToggle = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!isInCompare(job.id) && compareList.length >= 3) {
+      toast.error('At most three careers can be compared.');
+      return;
+    }
+    toggleCompare(job.id);
   };
 
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -84,6 +96,11 @@ const JobCard = ({ job, selectable, selected, onSelect }: JobCardProps) => {
 
   const salaryDisplay = formatToINR(`$${job.salary.min / 1000}k - $${job.salary.max / 1000}k`);
 
+  const cardPadding = compact ? 'p-2.5' : 'p-2.5 md:p-3';
+  const iconSize = compact ? 'text-2xl' : 'text-2xl md:text-2xl';
+  const titleSize = compact ? 'text-sm' : 'text-sm md:text-base';
+  const descSize = compact ? 'text-xs' : 'text-xs md:text-sm';
+
   return (
     <motion.div
       whileHover={{ scale: 1.02, y: -4 }}
@@ -94,41 +111,58 @@ const JobCard = ({ job, selectable, selected, onSelect }: JobCardProps) => {
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
       onClick={handleClick}
-      className={`relative bg-card border-2 rounded-2xl p-4 md:p-5 cursor-pointer transition-all glow-subtle hover:border-primary group ${
+      className={`relative bg-card border-2 rounded-2xl ${cardPadding} cursor-pointer transition-all glow-subtle hover:border-primary group ${
         selected ? 'border-primary bg-primary/10' : 'border-border'
       }`}
     >
-      <div className="flex items-start justify-between gap-3 md:gap-4">
-        <div className="flex items-start gap-3 md:gap-4 flex-1">
-          <div className="text-3xl md:text-4xl flex-shrink-0">{job.icon}</div>
+      <div className="flex items-start justify-between gap-2">
+        <div className="flex items-start gap-2 md:gap-3 flex-1">
+          <div className={`${iconSize} flex-shrink-0`}>{job.icon}</div>
           <div className="flex-1 min-w-0">
-            <h3 className="font-bold text-base md:text-lg mb-1 group-hover:text-primary transition-colors">
+            <h3 className={`font-bold ${titleSize} mb-0.5 group-hover:text-primary transition-colors`}>
               {job.name}
             </h3>
-            <p className="text-xs md:text-sm text-muted-foreground line-clamp-2 mb-2 md:mb-3">
+            <p className={`${descSize} text-muted-foreground line-clamp-2 mb-1.5`}>
               {job.description}
             </p>
-            <div className="flex flex-wrap gap-2">
-              <span className={`text-xs px-2 md:px-3 py-1 rounded-full bg-secondary capitalize ${getDifficultyColor(job.difficulty)}`}>
+            <div className="flex flex-wrap gap-1.5">
+              <span className={`text-xs px-2 py-0.5 rounded-full bg-secondary capitalize ${getDifficultyColor(job.difficulty)}`}>
                 {t(`filter.${job.difficulty}`)}
               </span>
-              <span className="text-xs px-2 md:px-3 py-1 rounded-full bg-secondary text-foreground">
+              <span className="text-xs px-2 py-0.5 rounded-full bg-secondary text-foreground">
                 {salaryDisplay}
               </span>
             </div>
           </div>
         </div>
 
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={handleFavoriteToggle}
-          className="p-2 hover:bg-secondary rounded-full transition-colors flex-shrink-0"
-        >
-          <Heart
-            className={`w-4 h-4 md:w-5 md:h-5 ${isFavorite(job.id) ? 'fill-primary text-primary' : 'text-muted-foreground'}`}
-          />
-        </motion.button>
+        <div className="flex flex-col gap-1">
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={handleFavoriteToggle}
+            className="p-1.5 hover:bg-secondary rounded-full transition-colors flex-shrink-0 flex items-center justify-center"
+          >
+            <Heart
+              className={`w-3.5 h-3.5 md:w-4 md:h-4 ${isFavorite(job.id) ? 'fill-primary text-primary' : 'text-muted-foreground'}`}
+            />
+          </motion.button>
+          
+          {showCompare && (
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={handleCompareToggle}
+              className={`p-1.5 rounded-full transition-colors flex-shrink-0 flex items-center justify-center ${
+                isInCompare(job.id) ? 'bg-green-500 hover:bg-green-600' : 'hover:bg-secondary'
+              }`}
+            >
+              <Check
+                className={`w-3.5 h-3.5 md:w-4 md:h-4 ${isInCompare(job.id) ? 'text-white' : 'text-muted-foreground'}`}
+              />
+            </motion.button>
+          )}
+        </div>
       </div>
     </motion.div>
   );

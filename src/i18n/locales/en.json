@@ -41,6 +41,9 @@
     "easy": "Easy",
     "medium": "Medium",
     "hard": "Hard",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
     "resultsCount": "{{count}} careers found"
   },
   "sections": {

@@ -41,6 +41,9 @@
     "easy": "आसान",
     "medium": "मध्यम",
     "hard": "कठिन",
+    "beginner": "शुरुआती",
+    "intermediate": "मध्यवर्ती",
+    "advanced": "उन्नत",
     "resultsCount": "{{count}} करियर मिले"
   },
   "sections": {

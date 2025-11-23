@@ -96,6 +96,25 @@ All colors MUST be HSL.
     border: 1px solid hsla(var(--border), 0.3);
   }
 
+  /* Custom scrollbar styling */
+  .scrollbar-thin::-webkit-scrollbar {
+    height: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: hsl(var(--secondary));
+    border-radius: 10px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 10px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.8);
+  }
+
   /* Mobile responsive sizing - scale down for small screens */
   @media (max-width: 480px) {
     h1 { font-size: 82%; }
