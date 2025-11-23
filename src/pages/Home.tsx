@@ -83,21 +83,21 @@ const Home = () => {
           <SearchBar />
 
           {/* Action Buttons */}
-          <div className="gap-3 flex-wrap flex items-start justify-start">
-            <Button onClick={() => setIsFilterOpen(true)} variant="outline" className="flex items-center gap-2 font-thin">
-              <SlidersHorizontal className="w-4 h-4" />
+          <div className="gap-2 flex items-center justify-start overflow-x-auto">
+            <Button onClick={() => setIsFilterOpen(true)} variant="outline" size="sm" className="flex items-center gap-1.5 whitespace-nowrap">
+              <SlidersHorizontal className="w-3.5 h-3.5" />
               {t('buttons.filter')}
             </Button>
-            <Button onClick={() => setIsSortOpen(!isSortOpen)} variant="outline" className="flex items-center gap-2">
-              <ArrowUpDown className="w-4 h-4" />
+            <Button onClick={() => setIsSortOpen(!isSortOpen)} variant="outline" size="sm" className="flex items-center gap-1.5 whitespace-nowrap">
+              <ArrowUpDown className="w-3.5 h-3.5" />
               {t('buttons.sort')}
             </Button>
-            <Button onClick={() => navigate('/favorites')} variant="outline" className="flex items-center gap-2">
-              <Heart className="w-4 h-4" />
+            <Button onClick={() => navigate('/favorites')} variant="outline" size="sm" className="flex items-center gap-1.5 whitespace-nowrap">
+              <Heart className="w-3.5 h-3.5" />
               {t('buttons.favorites')}
             </Button>
-            <Button onClick={() => navigate('/compare')} variant="outline" className="flex items-center gap-2 relative">
-              <GitCompare className="w-4 h-4" />
+            <Button onClick={() => navigate('/compare')} variant="outline" size="sm" className="flex items-center gap-1.5 relative whitespace-nowrap">
+              <GitCompare className="w-3.5 h-3.5" />
               {t('buttons.compare')}
               {compareList.length > 0 && <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground rounded-full w-5 h-5 text-xs flex items-center justify-center">
                   {compareList.length}
