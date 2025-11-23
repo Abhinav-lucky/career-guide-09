@@ -24,7 +24,7 @@ const JobCard = ({ job, selectable, selected, onSelect, compact = false, showCom
   const [longPressTimer, setLongPressTimer] = useState<NodeJS.Timeout | null>(null);
   const longPressRef = useRef(false);
 
-  const handleFavoriteToggle = (e: React.MouseEvent) => {
+  const handleFavoriteClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     toggleFavorite(job.id);
   };
@@ -32,7 +32,7 @@ const JobCard = ({ job, selectable, selected, onSelect, compact = false, showCom
   const handleCompareToggle = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (!isInCompare(job.id) && compareList.length >= 3) {
-      toast.error('At most three careers can be compared.');
+      toast.error('You can compare up to 3 careers at a time.');
       return;
     }
     toggleCompare(job.id);
@@ -140,11 +140,11 @@ const JobCard = ({ job, selectable, selected, onSelect, compact = false, showCom
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            onClick={handleFavoriteToggle}
+            onClick={handleFavoriteClick}
             className="p-1.5 hover:bg-secondary rounded-full transition-colors flex-shrink-0 flex items-center justify-center"
           >
             <Heart
-              className={`w-3.5 h-3.5 md:w-4 md:h-4 ${isFavorite(job.id) ? 'fill-primary text-primary' : 'text-muted-foreground'}`}
+              className={`w-3.5 h-3.5 md:w-4 md:h-4 ${isFavorite(job.id) ? 'fill-red-500 text-red-500' : 'text-muted-foreground'}`}
             />
           </motion.button>
           
@@ -153,12 +153,10 @@ const JobCard = ({ job, selectable, selected, onSelect, compact = false, showCom
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={handleCompareToggle}
-              className={`p-1.5 rounded-full transition-colors flex-shrink-0 flex items-center justify-center ${
-                isInCompare(job.id) ? 'bg-green-500 hover:bg-green-600' : 'hover:bg-secondary'
-              }`}
+              className="p-1.5 hover:bg-secondary rounded-full transition-colors flex-shrink-0 flex items-center justify-center"
             >
               <Check
-                className={`w-3.5 h-3.5 md:w-4 md:h-4 ${isInCompare(job.id) ? 'text-white' : 'text-muted-foreground'}`}
+                className={`w-3.5 h-3.5 md:w-4 md:h-4 ${isInCompare(job.id) ? 'text-green-500' : 'text-muted-foreground'}`}
               />
             </motion.button>
           )}

@@ -83,25 +83,47 @@ const Home = () => {
           <SearchBar />
 
           {/* Action Buttons */}
-          <div className="gap-2 flex items-center justify-start overflow-x-auto">
-            <Button onClick={() => setIsFilterOpen(true)} variant="outline" size="sm" className="flex items-center gap-1.5 whitespace-nowrap">
-              <SlidersHorizontal className="w-3.5 h-3.5" />
+          <div className="flex gap-2 pb-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setIsFilterOpen(true)}
+              className="whitespace-nowrap text-xs px-2.5 py-1 h-8"
+            >
+              <SlidersHorizontal className="w-3.5 h-3.5 mr-1.5" />
               {t('buttons.filter')}
             </Button>
-            <Button onClick={() => setIsSortOpen(!isSortOpen)} variant="outline" size="sm" className="flex items-center gap-1.5 whitespace-nowrap">
-              <ArrowUpDown className="w-3.5 h-3.5" />
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setIsSortOpen(!isSortOpen)}
+              className="whitespace-nowrap text-xs px-2.5 py-1 h-8"
+            >
+              <ArrowUpDown className="w-3.5 h-3.5 mr-1.5" />
               {t('buttons.sort')}
             </Button>
-            <Button onClick={() => navigate('/favorites')} variant="outline" size="sm" className="flex items-center gap-1.5 whitespace-nowrap">
-              <Heart className="w-3.5 h-3.5" />
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => navigate('/favorites')}
+              className="whitespace-nowrap text-xs px-2.5 py-1 h-8"
+            >
+              <Heart className="w-3.5 h-3.5 mr-1.5" />
               {t('buttons.favorites')}
             </Button>
-            <Button onClick={() => navigate('/compare')} variant="outline" size="sm" className="flex items-center gap-1.5 relative whitespace-nowrap">
-              <GitCompare className="w-3.5 h-3.5" />
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => navigate('/compare')}
+              className="whitespace-nowrap relative text-xs px-2.5 py-1 h-8"
+            >
+              <GitCompare className="w-3.5 h-3.5 mr-1.5" />
               {t('buttons.compare')}
-              {compareList.length > 0 && <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground rounded-full w-5 h-5 text-xs flex items-center justify-center">
+              {compareList.length > 0 && (
+                <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
                   {compareList.length}
-                </span>}
+                </span>
+              )}
             </Button>
           </div>
 

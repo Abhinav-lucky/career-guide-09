@@ -28,7 +28,7 @@ const Settings = ({ isOpen, onClose }: SettingsProps) => {
   };
 
   const handleGithubClick = () => {
-    window.open('https://github.com/yourusername/careerguide', '_blank');
+    window.open('https://github.com/Abhinav-lucky/career-guide-09', '_blank');
   };
 
   return (
@@ -126,16 +126,16 @@ const Settings = ({ isOpen, onClose }: SettingsProps) => {
                   <p>
                     <span className="font-semibold text-foreground">{t('settings.developers')}:</span>
                     <br />
-                    K M Rushee Varan, M Abhinav & V Aditya
+                    M Abhinav, V Aditya & K M Rushee Varan
                   </p>
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={handleGithubClick}
-                    className="flex items-center gap-2 mt-4 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity"
+                    className="flex items-center gap-2 mt-4 px-3.5 py-1.5 bg-black text-white border border-white/20 rounded-lg hover:bg-white hover:text-black transition-colors"
                   >
-                    <Github className="w-5 h-5" />
-                    <span>{t('settings.github')}</span>
+                    <Github className="w-4 h-4" />
+                    <span className="text-sm">{t('settings.github')}</span>
                   </motion.button>
                 </div>
               </motion.div>

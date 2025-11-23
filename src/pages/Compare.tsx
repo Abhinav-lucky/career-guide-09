@@ -65,50 +65,50 @@ const Compare = () => {
           </motion.div>
         ) : (
           <div className="space-y-6">
-            {/* Jobs Overview */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* Jobs Overview - Horizontal Layout */}
+            <div className={`grid gap-3 ${compareJobs.length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
               {compareJobs.map((job, index) => (
                 <motion.div
                   key={job.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="relative bg-card border border-border rounded-2xl p-6"
+                  className="relative bg-card border border-border rounded-2xl p-4"
                 >
                   <button
                     onClick={() => toggleCompare(job.id)}
-                    className="absolute top-4 right-4 p-1.5 bg-secondary hover:bg-destructive/20 rounded-full transition-colors"
+                    className="absolute top-3 right-3 p-1 bg-secondary hover:bg-destructive/20 rounded-full transition-colors"
                   >
-                    <X className="w-4 h-4" />
+                    <X className="w-3.5 h-3.5" />
                   </button>
-                  <div className="text-4xl mb-4">{job.icon}</div>
-                  <h3 className="font-bold text-lg mb-2">{job.name}</h3>
-                  <p className="text-sm text-muted-foreground line-clamp-2">
+                  <div className="text-3xl mb-3">{job.icon}</div>
+                  <h3 className="font-bold text-base mb-1.5">{job.name}</h3>
+                  <p className="text-xs text-muted-foreground line-clamp-2">
                     {job.description}
                   </p>
                 </motion.div>
               ))}
             </div>
 
-            {/* Comparison Table */}
+            {/* Comparison Sections - Horizontal Layout */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="bg-card border border-border rounded-2xl overflow-hidden"
+              className="space-y-4"
             >
               {/* Salary */}
-              <div className="border-b border-border">
-                <div className="p-4 bg-secondary/50">
+              <div className="bg-card border border-border rounded-2xl overflow-hidden">
+                <div className="p-3 bg-secondary/50">
                   <div className="flex items-center gap-2">
-                    <DollarSign className="w-5 h-5 text-primary" />
-                    <h3 className="font-bold">{t('compare.salary')}</h3>
+                    <DollarSign className="w-4 h-4 text-primary" />
+                    <h3 className="font-bold text-sm">{t('compare.salary')}</h3>
                   </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 divide-x divide-border">
+                <div className={`grid ${compareJobs.length === 2 ? 'grid-cols-2' : 'grid-cols-3'} divide-x divide-border`}>
                   {compareJobs.map((job) => (
-                    <div key={job.id} className="p-4">
-                      <p className="text-2xl font-bold">
+                    <div key={job.id} className="p-3">
+                      <p className="text-base font-bold">
                         {formatToINR(`$${job.salary.min / 1000}k - $${job.salary.max / 1000}k`)}
                       </p>
                     </div>
@@ -117,24 +117,24 @@ const Compare = () => {
               </div>
 
               {/* Difficulty */}
-              <div className="border-b border-border">
-                <div className="p-4 bg-secondary/50">
+              <div className="bg-card border border-border rounded-2xl overflow-hidden">
+                <div className="p-3 bg-secondary/50">
                   <div className="flex items-center gap-2">
-                    <TrendingUp className="w-5 h-5 text-primary" />
-                    <h3 className="font-bold">{t('compare.difficulty')}</h3>
+                    <TrendingUp className="w-4 h-4 text-primary" />
+                    <h3 className="font-bold text-sm">{t('compare.difficulty')}</h3>
                   </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 divide-x divide-border">
+                <div className={`grid ${compareJobs.length === 2 ? 'grid-cols-2' : 'grid-cols-3'} divide-x divide-border`}>
                   {compareJobs.map((job) => (
-                    <div key={job.id} className="p-4">
-                      <p className="text-xl font-bold capitalize mb-2">
+                    <div key={job.id} className="p-3">
+                      <p className="text-sm font-bold capitalize mb-1.5">
                         {t(`filter.${job.difficulty}`)}
                       </p>
                       <div className="flex gap-1">
                         {[1, 2, 3].map((level) => (
                           <div
                             key={level}
-                            className={`h-2 flex-1 rounded-full ${
+                            className={`h-1.5 flex-1 rounded-full ${
                               level <= getDifficultyScore(job.difficulty)
                                 ? 'bg-primary'
                                 : 'bg-secondary'
@@ -148,28 +148,28 @@ const Compare = () => {
               </div>
 
               {/* Skills */}
-              <div className="border-b border-border">
-                <div className="p-4 bg-secondary/50">
+              <div className="bg-card border border-border rounded-2xl overflow-hidden">
+                <div className="p-3 bg-secondary/50">
                   <div className="flex items-center gap-2">
-                    <BookOpen className="w-5 h-5 text-primary" />
-                    <h3 className="font-bold">{t('compare.skills')}</h3>
+                    <BookOpen className="w-4 h-4 text-primary" />
+                    <h3 className="font-bold text-sm">{t('compare.skills')}</h3>
                   </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 divide-x divide-border">
+                <div className={`grid ${compareJobs.length === 2 ? 'grid-cols-2' : 'grid-cols-3'} divide-x divide-border`}>
                   {compareJobs.map((job) => (
-                    <div key={job.id} className="p-4">
-                      <div className="flex flex-wrap gap-2">
-                        {job.skills.slice(0, 4).map((skill) => (
+                    <div key={job.id} className="p-3">
+                      <div className="flex flex-wrap gap-1.5">
+                        {job.skills.slice(0, 3).map((skill) => (
                           <span
                             key={skill}
-                            className="px-3 py-1 bg-secondary rounded-full text-xs"
+                            className="px-2 py-0.5 bg-secondary rounded-full text-[10px]"
                           >
                             {skill}
                           </span>
                         ))}
-                        {job.skills.length > 4 && (
-                          <span className="px-3 py-1 bg-secondary rounded-full text-xs text-muted-foreground">
-                            +{job.skills.length - 4} more
+                        {job.skills.length > 3 && (
+                          <span className="px-2 py-0.5 bg-secondary rounded-full text-[10px] text-muted-foreground">
+                            +{job.skills.length - 3}
                           </span>
                         )}
                       </div>
@@ -178,18 +178,18 @@ const Compare = () => {
                 </div>
               </div>
 
-              {/* Roadmap Length */}
-              <div>
-                <div className="p-4 bg-secondary/50">
-                  <h3 className="font-bold">{t('sections.roadmap')}</h3>
+              {/* Roadmap */}
+              <div className="bg-card border border-border rounded-2xl overflow-hidden">
+                <div className="p-3 bg-secondary/50">
+                  <h3 className="font-bold text-sm">{t('sections.roadmap')}</h3>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 divide-x divide-border">
+                <div className={`grid ${compareJobs.length === 2 ? 'grid-cols-2' : 'grid-cols-3'} divide-x divide-border`}>
                   {compareJobs.map((job) => (
-                    <div key={job.id} className="p-4">
-                      <p className="text-2xl font-bold mb-1">
+                    <div key={job.id} className="p-3">
+                      <p className="text-base font-bold mb-0.5">
                         {job.roadmap.length} Steps
                       </p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-xs text-muted-foreground">
                         {job.certificates.length} certifications
                       </p>
                     </div>
@@ -199,12 +199,13 @@ const Compare = () => {
             </motion.div>
 
             {/* Action Buttons */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className={`grid gap-3 ${compareJobs.length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
               {compareJobs.map((job) => (
                 <Button
                   key={job.id}
                   onClick={() => navigate(`/job/${job.id}`)}
-                  className="w-full"
+                  className="w-full text-sm"
+                  size="sm"
                 >
                   View {job.name}
                 </Button>
