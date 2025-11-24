@@ -134,6 +134,11 @@ All colors MUST be HSL.
     background: hsl(var(--primary) / 0.8);
   }
 
+  /* Hide Lovable badge globally */
+  #lovable-badge {
+    display: none !important;
+  }
+
   /* Mobile responsive sizing - scale down for small screens */
   @media (max-width: 480px) {
     h1 { font-size: 82%; }
