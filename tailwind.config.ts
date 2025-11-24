@@ -13,6 +13,15 @@ export default {
       },
     },
     extend: {
+      fontSize: {
+        xs: ['0.86rem', { lineHeight: '1.15rem' }],
+        sm: ['1.01rem', { lineHeight: '1.43rem' }],
+        base: ['1.15rem', { lineHeight: '1.73rem' }],
+        lg: ['1.29rem', { lineHeight: '1.73rem' }],
+        xl: ['1.44rem', { lineHeight: '2.01rem' }],
+        '2xl': ['1.73rem', { lineHeight: '2.3rem' }],
+        '3xl': ['2.16rem', { lineHeight: '2.59rem' }],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
