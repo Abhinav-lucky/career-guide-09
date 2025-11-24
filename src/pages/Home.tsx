@@ -83,12 +83,12 @@ const Home = () => {
           <SearchBar />
 
           {/* Action Buttons */}
-          <div className="flex items-center gap-2.5">{/* Removed overflow-x-auto and pb-1 */}
+          <div className="flex items-center justify-start gap-2.5">{/* Removed overflow-x-auto and pb-1 */}
             <Button
               variant="outline"
               size="sm"
               onClick={() => setIsFilterOpen(true)}
-              className="whitespace-nowrap text-xs px-2 py-1 h-7"
+              className="whitespace-nowrap text-xs px-2.5 py-1 h-7 flex items-center justify-center"
             >
               <SlidersHorizontal className="w-3 h-3 mr-1.5" />
               {t('buttons.filter')}
@@ -97,7 +97,7 @@ const Home = () => {
               variant="outline"
               size="sm"
               onClick={() => setIsSortOpen(!isSortOpen)}
-              className="whitespace-nowrap text-xs px-2 py-1 h-7"
+              className="whitespace-nowrap text-xs px-2.5 py-1 h-7 flex items-center justify-center"
             >
               <ArrowUpDown className="w-3 h-3 mr-1.5" />
               {t('buttons.sort')}
@@ -106,7 +106,7 @@ const Home = () => {
               variant="outline"
               size="sm"
               onClick={() => navigate('/favorites')}
-              className="whitespace-nowrap text-xs px-2 py-1 h-7"
+              className="whitespace-nowrap text-xs px-2.5 py-1 h-7 flex items-center justify-center"
             >
               <Heart className="w-3 h-3 mr-1.5" />
               {t('buttons.favorites')}
@@ -115,7 +115,7 @@ const Home = () => {
               variant="outline"
               size="sm"
               onClick={() => navigate('/compare')}
-              className="whitespace-nowrap relative text-xs px-2 py-1 h-7"
+              className="whitespace-nowrap relative text-xs px-2.5 py-1 h-7 flex items-center justify-center"
             >
               <GitCompare className="w-3 h-3 mr-1.5" />
               {t('buttons.compare')}
@@ -163,7 +163,7 @@ const Home = () => {
             </h3>
             <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-thin">
               {recentlyViewedJobs.map(job => (
-                <div key={job.id} className="flex-shrink-0 w-[280px]">
+                <div key={job.id} className="flex-shrink-0 w-[168px]">
                   <JobCard job={job} compact />
                 </div>
               ))}
