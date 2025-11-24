@@ -34,7 +34,7 @@ const Layout = ({
           }} onClick={() => navigate(-1)} className="p-2 rounded-full hover:bg-secondary transition-colors flex items-center justify-center" aria-label={t('nav.back')}>
                 <ArrowLeft className="w-5 h-5" />
               </motion.button>}
-            <h1 className="text-xl font-bold cursor-pointer hover:text-primary transition-colors" onClick={() => navigate('/')}>
+            <h1 className="text-[1.584rem] font-bold cursor-pointer hover:text-primary transition-colors" onClick={() => navigate('/')}>
               Career<span className="text-primary">Guide</span>
             </h1>
           </div>
