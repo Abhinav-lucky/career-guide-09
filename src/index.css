@@ -143,18 +143,18 @@ All colors MUST be HSL.
   @media (max-width: 480px) {
     h1 { font-size: 82%; }
     h2 { font-size: 82%; }
-    h3 { font-size: 82%; }
-    h4 { font-size: 85%; }
+    h3 { font-size: 94%; }
+    h4 { font-size: 98%; }
     
-    body, p, span { font-size: 85%; }
+    body, p, span { font-size: 98%; }
     
-    .text-xs { font-size: 0.65rem; }
-    .text-sm { font-size: 0.75rem; }
-    .text-base { font-size: 0.85rem; }
-    .text-lg { font-size: 0.95rem; }
-    .text-xl { font-size: 1.1rem; }
-    .text-2xl { font-size: 1.3rem; }
-    .text-3xl { font-size: 1.6rem; }
+    .text-xs { font-size: 0.75rem; }
+    .text-sm { font-size: 0.86rem; }
+    .text-base { font-size: 0.98rem; }
+    .text-lg { font-size: 1.09rem; }
+    .text-xl { font-size: 1.27rem; }
+    .text-2xl { font-size: 1.5rem; }
+    .text-3xl { font-size: 1.84rem; }
     
     .p-2 { padding: 0.4rem; }
     .p-3 { padding: 0.6rem; }
