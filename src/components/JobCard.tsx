@@ -134,11 +134,11 @@ const JobCard = ({ job, selectable, selected, onSelect, compact = false, showCom
             <p className={`${descSize} text-muted-foreground line-clamp-2 mb-1.5`}>
               {job.description}
             </p>
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex items-center justify-between gap-2">
               <span className={`text-xs px-2 py-0.5 rounded-full bg-secondary capitalize ${getDifficultyColor(job.difficulty)}`}>
                 {t(`filter.${job.difficulty}`)}
               </span>
-              <span className="text-xs px-2 py-0.5 rounded-full bg-secondary text-foreground">
+              <span className="text-xs px-2.5 py-0.5 rounded-full bg-primary/10 text-primary font-medium">
                 {salaryDisplay}
               </span>
             </div>
