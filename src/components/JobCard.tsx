@@ -104,11 +104,11 @@ const JobCard = ({ job, selectable, selected, onSelect, compact = false, showCom
 
   const salaryDisplay = formatToINR(`$${job.salary.min / 1000}k - $${job.salary.max / 1000}k`);
 
-  const cardPadding = compact ? 'p-2' : 'p-2.5 md:p-3';
+  const cardPadding = compact ? 'p-2.5' : 'p-2.5 md:p-3';
   const iconSize = compact ? 'text-xl' : 'text-2xl md:text-2xl';
   const titleSize = compact ? 'text-sm' : 'text-sm md:text-base';
-  const descSize = compact ? 'text-[0.7rem]' : 'text-xs md:text-sm';
-  const cardHeight = compact ? 'h-[100px]' : '';
+  const descSize = compact ? 'text-xs' : 'text-xs md:text-sm';
+  const cardHeight = compact ? 'h-[105px]' : '';
 
   return (
     <motion.div
