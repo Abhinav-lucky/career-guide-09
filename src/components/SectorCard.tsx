@@ -29,10 +29,10 @@ const SectorCard = ({ sector, index }: SectorCardProps) => {
       <div className="relative p-3.5 min-h-[84px] flex flex-col justify-between">
         <div>
           <div className="text-2xl mb-2">{sector.icon}</div>
-          <h3 className="text-base font-bold text-white mb-0.5">
+          <h3 className="text-[1.2rem] font-bold text-white mb-0.5">
             {sector.name}
           </h3>
-          <p className="text-xs text-white/80">
+          <p className="text-[0.9rem] text-white/80">
             {sector.description}
           </p>
         </div>

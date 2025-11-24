@@ -108,6 +108,7 @@ const JobCard = ({ job, selectable, selected, onSelect, compact = false, showCom
   const iconSize = compact ? 'text-2xl' : 'text-2xl md:text-2xl';
   const titleSize = compact ? 'text-sm' : 'text-sm md:text-base';
   const descSize = compact ? 'text-xs' : 'text-xs md:text-sm';
+  const cardHeight = compact ? 'h-[140px]' : '';
 
   return (
     <motion.div
@@ -119,7 +120,7 @@ const JobCard = ({ job, selectable, selected, onSelect, compact = false, showCom
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
       onClick={handleClick}
-      className={`relative bg-card border-2 rounded-2xl ${cardPadding} cursor-pointer transition-all glow-subtle hover:border-primary group ${
+      className={`relative bg-card border-2 rounded-2xl ${cardPadding} ${cardHeight} cursor-pointer transition-all glow-subtle hover:border-primary group ${
         selected ? 'border-primary bg-primary/10' : 'border-border'
       }`}
     >
