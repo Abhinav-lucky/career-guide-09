@@ -163,7 +163,7 @@ const Home = () => {
             </h3>
             <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-thin">
               {recentlyViewedJobs.map(job => (
-                <div key={job.id} className="flex-shrink-0 w-[168px]">
+                <div key={job.id} className="flex-shrink-0 w-[220px]">
                   <JobCard job={job} compact />
                 </div>
               ))}
